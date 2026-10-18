@@ -7,8 +7,12 @@
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scenes/path_follow_3d.gd" id="5_42jam"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
+sky_horizon_color = Color(0.517903, 0.103028394, 0.5530829, 1)
+sky_curve = 0.27990973
+ground_bottom_color = Color(0.64923894, 0.13107046, 0.2678403, 1)
+ground_horizon_color = Color(0.52907544, 0.09320269, 0.5848777, 1)
+ground_curve = 0.04141073
 
 [sub_resource type="Sky" id="Sky_at2u3"]
 sky_material = SubResource("ProceduralSkyMaterial_mm4jm")
@@ -18,6 +22,9 @@ background_mode = 2
 sky = SubResource("Sky_at2u3")
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.72063166, 0.598306, 0.72932553, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_k5cj5"]
 closed = true
@@ -27,13 +34,20 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="FogMaterial" id="FogMaterial_uq1df"]
+density = 1.5543
+albedo = Color(0.79679346, 0, 0.21276283, 1)
+emission = Color(0.7883418, 0.12838188, 0.3345048, 1)
+height_falloff = 2.0
+edge_fade = 0.3732115
+
 [node name="World_node" type="Node3D" unique_id=964926376]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1908263488]
 environment = SubResource("Environment_ekhe2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=769634007]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -11.08297, 30.57016, 43.551888)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1885824127]
@@ -52,10 +66,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
+<<<<<<< Updated upstream
 transform = Transform3D(0.9681711, -0.0006439118, -0.25016105, 0.000334277, 0.99996585, -0.001280207, 0.25016, 0.0011558649, 0.9681768, 1.9308848, -0.566685, -7.4922256)
+=======
+transform = Transform3D(0.9681711, -0.00064391166, -0.25016105, 0.000334277, 0.99996567, -0.001280207, 0.25016, 0.0011558647, 0.9681768, 1.9308848, -0.566685, -7.4922256)
+>>>>>>> Stashed changes
 progress = 6.8017235
 script = ExtResource("5_42jam")
 
 [node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 instance=ExtResource("3_uq1df")]
 transform = Transform3D(0.5685472, 0.13994043, 0.8106846, -0.17534505, 0.9834051, -0.046782926, -0.80376506, -0.11554934, 0.5836405, 4.315751, 1.2088084, 5.199352)
 script = ExtResource("4_1tp12")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1427353197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8881836, -16.496956, 4.279772)
+size = Vector3(325.09274, 7.071533, 218.25583)
+material = SubResource("FogMaterial_uq1df")
