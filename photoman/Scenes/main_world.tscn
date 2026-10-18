@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3iuhcln22ju6" path="res://Scenes/player_body.tscn" id="1_at2u3"]
 [ext_resource type="PackedScene" uid="uid://b8lon5qkaw1qs" path="res://Scenes/city.tscn" id="2_ekhe2"]
 [ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
-[ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://photo_targets.gd" id="5_1tp12"]
+[ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://Scripts/photo_targets.gd" id="5_1tp12"]
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scripts/path_follow_3d.gd" id="5_42jam"]
 [ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
 
@@ -41,6 +41,8 @@ albedo = Color(0.79679346, 0, 0.21276283, 1)
 emission = Color(0.7883418, 0.12838188, 0.3345048, 1)
 height_falloff = 2.0
 edge_fade = 0.3732115
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tp12"]
 
 [node name="World_node" type="Node3D" unique_id=964926376]
 
@@ -87,3 +89,14 @@ stream = ExtResource("6_1tp12")
 volume_db = -11.884
 autoplay = true
 parameters/looping = true
+
+[node name="Meble" type="Node" parent="." unique_id=246017886]
+
+[node name="Area3D" type="Area3D" parent="Meble" unique_id=972398841 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.976575, 2.0186167, 1.2529072)
+script = ExtResource("5_1tp12")
+object_id = "Stolik z krzesłami"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Area3D" unique_id=1958109509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6201718, 0)
+shape = SubResource("BoxShape3D_1tp12")
