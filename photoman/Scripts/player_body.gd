@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 2
-const MOUSE_SENSITIVITY = 0.01
+var MOUSE_SENSITIVITY = 0.01
 
 @onready var head = $HeadNode
 @onready var camera = $HeadNode/Camera3D
@@ -24,9 +24,10 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+
 		
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -54,12 +55,14 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("LMB"):
 		print("zaczynam trzymac lmb, wyjmij aparat")
-		_funky_tween(aparat, "position", aparatheld_pos.position + self.position, 0.2)
+		MOUSE_SENSITIVITY *= 0.1
+		_funky_tween(aparat, "position", aparatheld_pos.position, 0.2)
 		aparat_held = true
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
-		_funky_tween(aparat, "position", aparatluz_pos.position + self.position, 0.2)
+		MOUSE_SENSITIVITY *= 10
+		_funky_tween(aparat, "position", aparatluz_pos.position, 0.2)
 		aparat_held = false
 	
 	if aparat_held && Input.is_action_just_pressed("RMB"):

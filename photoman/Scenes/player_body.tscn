@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25756025, 0)
 [node name="AparatNodes" type="Node3D" parent="." unique_id=1706356446]
 
 [node name="AparatHeld" type="Node3D" parent="AparatNodes" unique_id=1978529198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8728492, -1.0438595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63107276, -0.14574409)
 
 [node name="AparatLuz" type="Node3D" parent="AparatNodes" unique_id=1944556324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5354854, 0.17095482, -0.17619413)
