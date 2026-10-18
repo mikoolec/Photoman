@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://b8lon5qkaw1qs"]
 
 [ext_resource type="PackedScene" uid="uid://dcypar1m11ddl" path="res://Assets/Blend/city.blend" id="1_u7naw"]
-[ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://photo_targets.gd" id="2_kyn5i"]
 
 [node name="city" unique_id=1204165432 instance=ExtResource("1_u7naw")]
-
-[node name="@StaticBody3D@109871" parent="." index="17" unique_id=269099280 groups=["photo_targets"]]
-script = ExtResource("2_kyn5i")
-object_id = "tree"
