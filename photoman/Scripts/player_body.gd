@@ -13,7 +13,7 @@ const bob_amp = 0.08
 var t_bob = 0.0
 
 #moje
-@export var aparat:PackedScene
+@export var aparat:Node3D
 var aparat_held:bool = false
 
 func _ready() -> void:
