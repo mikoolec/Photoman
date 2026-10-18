@@ -30,10 +30,10 @@ volumetric_fog_albedo = Color(0.72063166, 0.598306, 0.72932553, 1)
 [sub_resource type="Curve3D" id="Curve3D_k5cj5"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.22917056, -0.57539356, -0.9062271, 0, 0, 0, 0, 0, 0, 2.3532612, -0.56452346, -9.126913, 0, 0, 0, 0, 0, 0, 6.8921466, -0.724179, -7.809017, 0, 0, 0, 0, 0, 0, 6.2576284, -0.55099535, -6.83663, 0, 0, 0, 0, 0, 0, 5.8890185, -0.27795482, -6.162121, 0, 0, 0, 0, 0, 0, 5.5943713, 0.027893782, -5.5673323, 0, 0, 0, 0, 0, 0, 4.7067614, 0.2672541, -4.2091312, 0, 0, 0, 0, 0, 0, 3.686839, 0.3204453, -2.7895079, 0, 0, 0, 0, 0, 0, 1.4618855, -0.54391026, -0.31587696, 0, 0, 0, 0, 0, 0, 0.09080887, -0.60709083, 0.73051167),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.16416979, -0.5466356, 0.36745167, 0, 0, 0, 0, 0, 0, -0.49790168, -0.7779629, -3.8144302, 0, 0, 0, 0, 0, 0, 0.2645886, -0.73144096, -6.8282166, 0, 0, 0, 0, 0, 0, 3.5408602, -0.6618483, -7.7349987, 0, 0, 0, 0, 0, 0, 7.7815027, -0.5309464, -5.4657774, 0, 0, 0, 0, 0, 0, 7.893747, -0.5345707, 0.2305603),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 10
+point_count = 6
 
 [sub_resource type="FogMaterial" id="FogMaterial_uq1df"]
 density = 1.5543
@@ -43,6 +43,7 @@ height_falloff = 2.0
 edge_fade = 0.3732115
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tp12"]
+size = Vector3(3.55, 6.365, 4.385)
 
 [node name="World_node" type="Node3D" unique_id=964926376]
 
@@ -69,12 +70,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
-transform = Transform3D(0.9681711, -0.00064391125, -0.25016105, 0.000334277, 0.999965, -0.001280207, 0.25016, 0.0011558639, 0.9681768, 1.9308848, -0.566685, -7.4922256)
-progress = 6.8017235
+transform = Transform3D(0.9876176, -0.008530234, 0.15612873, 4.6562323e-10, 0.99844503, 0.054551277, -0.15635863, -0.053880036, 0.9861655, 0.16416979, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
+speed = 0.04
 
 [node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
-transform = Transform3D(0.5685472, 0.13994043, 0.8106846, -0.17534505, 0.9834051, -0.046782926, -0.80376506, -0.11554934, 0.5836405, 4.315751, 1.2088084, 5.199352)
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 script = ExtResource("5_1tp12")
 object_id = "NPC"
 point_value = 88
@@ -92,11 +93,29 @@ parameters/looping = true
 
 [node name="Meble" type="Node" parent="." unique_id=246017886]
 
-[node name="Area3D" type="Area3D" parent="Meble" unique_id=972398841 groups=["photo_targets"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.976575, 2.0186167, 1.2529072)
+[node name="Tort" type="Area3D" parent="Meble" unique_id=972398841 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.206268, 1.8608117, -26.730968)
 script = ExtResource("5_1tp12")
-object_id = "Stolik z krzesłami"
+object_id = "Tort"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Area3D" unique_id=1958109509]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Tort" unique_id=1958109509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6201718, 0)
+shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Drukarka" type="Area3D" parent="Meble" unique_id=1249484416 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.979818, 2.014194, 1.094625)
+script = ExtResource("5_1tp12")
+object_id = "Diabelskie urządzenie"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drukarka" unique_id=409105483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6201718, 0)
+shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Drzewo" type="Area3D" parent="Meble" unique_id=2079851748 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.242396, -1.9114406, -15.168978)
+script = ExtResource("5_1tp12")
+object_id = "Drzewo"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo" unique_id=321028754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 4.317449, 1.1828957)
 shape = SubResource("BoxShape3D_1tp12")
