@@ -5,18 +5,18 @@
 [ext_resource type="AudioStream" uid="uid://cj14cti6e1dqt" path="res://Assets/Sound/shutter.mp3" id="2_jafun"]
 [ext_resource type="Script" uid="uid://d37p35ks5c4je" path="res://Scripts/raycast.gd" id="2_odw5a"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_74bvt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_odw5a"]
 viewport_path = NodePath("SubViewport")
 
 [node name="aparat" unique_id=460060548 instance=ExtResource("1_74bvt")]
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="3" unique_id=1722293546]
-transform = Transform3D(0.038, 0, 0, 0, 0.038, 0, 0, 0, 0.038, -0.034436285, 0, -0.0055070743)
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.034436285, 0, -0.0055070743)
 pixel_size = 0.04
-texture = SubResource("ViewportTexture_74bvt")
+texture = SubResource("ViewportTexture_odw5a")
 
 [node name="SubViewport" type="SubViewport" parent="." index="5" unique_id=1501410405]
-size = Vector2i(128, 128)
+size = Vector2i(196, 196)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" index="0" unique_id=1294657047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21169597)

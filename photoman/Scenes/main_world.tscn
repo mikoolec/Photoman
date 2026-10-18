@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://Scripts/photo_targets.gd" id="5_1tp12"]
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scripts/path_follow_3d.gd" id="5_42jam"]
 [ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
+[ext_resource type="PackedScene" uid="uid://dtfj63jb56o73" path="res://Scenes/NPC_scenes/npc_1_spider.tscn" id="6_42jam"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -63,13 +64,8 @@ environment = SubResource("Environment_ekhe2")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -11.08297, 30.57016, 43.551888)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1885824127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1703186, -0.44677734, -0.2019043)
-use_collision = true
-size = Vector3(11.756897, 0.10644531, 11.280762)
-
 [node name="PlayerBody" parent="." unique_id=1388397539 instance=ExtResource("1_at2u3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.650628, 0.8033385, -0.53036404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3459191, 0.8033385, -17.146282)
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
@@ -85,9 +81,12 @@ speed = 0.04
 
 [node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
 script = ExtResource("5_1tp12")
 object_id = "NPC"
 point_value = 88
+
+[node name="npc1" parent="Path3D2/PathFollow3D" unique_id=695859009 instance=ExtResource("6_42jam")]
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=1427353197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8881836, -16.496956, 4.279772)
