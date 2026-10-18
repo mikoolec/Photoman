@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 2
 var MOUSE_SENSITIVITY = 0.01
@@ -9,7 +9,7 @@ var MOUSE_SENSITIVITY = 0.01
 @onready var camera = $HeadNode/Camera3D
 
 const bob_freq = 2.0
-const bob_amp = 0.08
+var bob_amp = 0.08
 var t_bob = 0.0
 
 #moje
@@ -56,14 +56,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("LMB"):
 		print("zaczynam trzymac lmb, wyjmij aparat")
 		MOUSE_SENSITIVITY *= 0.1
+		SPEED *= 0.4
+		bob_amp *= 0.2
 		_funky_tween(aparat, "position", aparatheld_pos.position, 0.2)
 		aparat_held = true
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
 		MOUSE_SENSITIVITY *= 10
+		SPEED *= 2.5
+		bob_amp *= 5
 		_funky_tween(aparat, "position", aparatluz_pos.position, 0.2)
 		aparat_held = false
+	
+	
 	
 	if aparat_held && Input.is_action_just_pressed("RMB"):
 		print("kliknieto rmb trzymajac aparat, zrob zdjecie")
