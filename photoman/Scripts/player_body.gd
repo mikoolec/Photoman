@@ -19,14 +19,23 @@ var aparat_held:bool = false
 @onready var aparatheld_pos = $AparatNodes/AparatHeld
 @onready var aparatluz_pos = $AparatNodes/AparatLuz
 
+@onready var beepPlayer = $aparat/ShutterBeeper
+@onready var shutter = $aparat/Shutter
+@onready var subViewport = $aparat/SubViewport
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	shutter.finished.connect(_on_shutter_finished)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		aparat.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		aparat.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		#aparat_nodes.rotate_x((-event.relative.y * MOUSE_SENSITIVITY))
+		
 
 		
 
@@ -58,8 +67,13 @@ func _physics_process(delta: float) -> void:
 		MOUSE_SENSITIVITY *= 0.1
 		SPEED *= 0.4
 		bob_amp *= 0.2
-		_funky_tween(aparat, "position", aparatheld_pos.position, 0.2)
+		var pos = aparatheld_pos.position
+		#pos.y += sin(aparat.rotation.x)*0.17
+		#pos.z += cos(aparat.rotation.x)*0.05
+		_funky_tween(aparat, "position", pos, 0.2)
 		aparat_held = true
+		beepPlayer.play()
+		
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
@@ -73,9 +87,15 @@ func _physics_process(delta: float) -> void:
 	
 	if aparat_held && Input.is_action_just_pressed("RMB"):
 		print("kliknieto rmb trzymajac aparat, zrob zdjecie")
+		shutter.play()
+		subViewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	
 	move_and_slide()
 
+func _on_shutter_finished() -> void:
+	print("The shutter sound has finished playing completely!")
+	subViewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://kdb2hqrhe4q5"]
 
 [ext_resource type="PackedScene" uid="uid://1s7kveqj0jmp" path="res://Assets/Blend/aparat.blend" id="1_74bvt"]
+[ext_resource type="AudioStream" uid="uid://dffflwf1cquhj" path="res://Assets/Sound/shutter_beep.mp3" id="2_b562j"]
+[ext_resource type="AudioStream" uid="uid://cj14cti6e1dqt" path="res://Assets/Sound/shutter.mp3" id="2_jafun"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_74bvt"]
 viewport_path = NodePath("SubViewport")
@@ -21,3 +23,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21169597)
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="." index="6" unique_id=829839909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21169597)
 remote_path = NodePath("../SubViewport/Camera3D")
+
+[node name="Shutter" type="AudioStreamPlayer3D" parent="." index="7" unique_id=2005567793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013554156, -0.09120265, -0.085606754)
+stream = ExtResource("2_jafun")
+
+[node name="ShutterBeeper" type="AudioStreamPlayer3D" parent="." index="8" unique_id=416640898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10230771, 0.11816214, -0.042803377)
+stream = ExtResource("2_b562j")
