@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
 [ext_resource type="Script" uid="uid://djkp68xio3dr7" path="res://Scenes/npc.gd" id="4_1tp12"]
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scenes/path_follow_3d.gd" id="5_42jam"]
+[ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -66,9 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
-
-transform = Transform3D(0.9681711, -0.0006439118, -0.25016105, 0.000334277, 0.99996585, -0.001280207, 0.25016, 0.0011558649, 0.9681768, 1.9308848, -0.566685, -7.4922256)
-
+transform = Transform3D(0.9681711, -0.0006439117, -0.25016105, 0.000334277, 0.9999658, -0.001280207, 0.25016, 0.0011558648, 0.9681768, 1.9308848, -0.566685, -7.4922256)
 progress = 6.8017235
 script = ExtResource("5_42jam")
 
@@ -80,3 +79,9 @@ script = ExtResource("4_1tp12")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8881836, -16.496956, 4.279772)
 size = Vector3(325.09274, 7.071533, 218.25583)
 material = SubResource("FogMaterial_uq1df")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1200023883]
+stream = ExtResource("6_1tp12")
+volume_db = -11.884
+autoplay = true
+parameters/looping = true
