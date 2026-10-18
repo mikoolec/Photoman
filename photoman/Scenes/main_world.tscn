@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b3iuhcln22ju6" path="res://Scenes/player_body.tscn" id="1_at2u3"]
 [ext_resource type="PackedScene" uid="uid://b8lon5qkaw1qs" path="res://Scenes/city.tscn" id="2_ekhe2"]
+[ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
+[ext_resource type="Script" uid="uid://djkp68xio3dr7" path="res://Scenes/npc.gd" id="4_1tp12"]
+[ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scenes/path_follow_3d.gd" id="5_42jam"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +18,14 @@ background_mode = 2
 sky = SubResource("Sky_at2u3")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_k5cj5"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.22917056, -0.57539356, -0.9062271, 0, 0, 0, 0, 0, 0, 2.3532612, -0.56452346, -9.126913, 0, 0, 0, 0, 0, 0, 6.8921466, -0.724179, -7.809017, 0, 0, 0, 0, 0, 0, 6.2576284, -0.55099535, -6.83663, 0, 0, 0, 0, 0, 0, 5.8890185, -0.27795482, -6.162121, 0, 0, 0, 0, 0, 0, 5.5943713, 0.027893782, -5.5673323, 0, 0, 0, 0, 0, 0, 4.7067614, 0.2672541, -4.2091312, 0, 0, 0, 0, 0, 0, 3.686839, 0.3204453, -2.7895079, 0, 0, 0, 0, 0, 0, 1.4618855, -0.54391026, -0.31587696, 0, 0, 0, 0, 0, 0, 0.09080887, -0.60709083, 0.73051167),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
 
 [node name="World_node" type="Node3D" unique_id=964926376]
 
@@ -35,3 +46,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.650628, 0.8033385, -0.5303
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
+
+[node name="Path3D2" type="Path3D" parent="." unique_id=1389304285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
+transform = Transform3D(0.9681711, -0.00064391195, -0.25016105, 0.000334277, 0.99996614, -0.001280207, 0.25016, 0.0011558653, 0.9681768, 1.9308848, -0.566685, -7.4922256)
+progress = 6.8017235
+script = ExtResource("5_42jam")
+
+[node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 instance=ExtResource("3_uq1df")]
+transform = Transform3D(0.5685472, 0.13994043, 0.8106846, -0.17534505, 0.9834051, -0.046782926, -0.80376506, -0.11554934, 0.5836405, 4.315751, 1.2088084, 5.199352)
+script = ExtResource("4_1tp12")
