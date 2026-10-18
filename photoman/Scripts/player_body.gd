@@ -15,6 +15,7 @@ var t_bob = 0.0
 #moje
 @export var aparat:Node3D
 var aparat_held:bool = false
+var can_shoot:bool = true
 @onready var aparat_nodes = $AparatNodes
 @onready var aparatheld_pos = $AparatNodes/AparatHeld
 @onready var aparatluz_pos = $AparatNodes/AparatLuz
@@ -85,7 +86,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	if aparat_held && Input.is_action_just_pressed("RMB"):
+	if aparat_held && Input.is_action_just_pressed("RMB") && can_shoot:
+		can_shoot = false
 		print("kliknieto rmb trzymajac aparat, zrob zdjecie")
 		shutter.play()
 		subViewport.render_target_update_mode = SubViewport.UPDATE_ONCE
@@ -95,6 +97,7 @@ func _physics_process(delta: float) -> void:
 func _on_shutter_finished() -> void:
 	print("The shutter sound has finished playing completely!")
 	subViewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	can_shoot = true
 	
 
 func _headbob(time) -> Vector3:
