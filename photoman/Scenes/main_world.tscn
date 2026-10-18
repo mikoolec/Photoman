@@ -66,11 +66,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
-<<<<<<< Updated upstream
+
 transform = Transform3D(0.9681711, -0.0006439118, -0.25016105, 0.000334277, 0.99996585, -0.001280207, 0.25016, 0.0011558649, 0.9681768, 1.9308848, -0.566685, -7.4922256)
-=======
-transform = Transform3D(0.9681711, -0.00064391166, -0.25016105, 0.000334277, 0.99996567, -0.001280207, 0.25016, 0.0011558647, 0.9681768, 1.9308848, -0.566685, -7.4922256)
->>>>>>> Stashed changes
+
 progress = 6.8017235
 script = ExtResource("5_42jam")
 
