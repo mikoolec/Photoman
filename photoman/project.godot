@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[global_group]
+
+photo_targets=""
+
 [input]
 
 ui_left={

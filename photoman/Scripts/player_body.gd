@@ -20,6 +20,7 @@ var can_shoot:bool = true
 @onready var aparatheld_pos = $AparatNodes/AparatHeld
 @onready var aparatluz_pos = $AparatNodes/AparatLuz
 
+@onready var aparats_camera = $aparat/SubViewport/Camera3D
 @onready var beepPlayer = $aparat/ShutterBeeper
 @onready var shutter = $aparat/Shutter
 @onready var subViewport = $aparat/SubViewport
@@ -91,6 +92,8 @@ func _physics_process(delta: float) -> void:
 		print("kliknieto rmb trzymajac aparat, zrob zdjecie")
 		shutter.play()
 		subViewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+		print(aparats_camera.scan_visible_objects())
+		
 	
 	move_and_slide()
 

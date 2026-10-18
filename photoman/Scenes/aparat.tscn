@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://1s7kveqj0jmp" path="res://Assets/Blend/aparat.blend" id="1_74bvt"]
 [ext_resource type="AudioStream" uid="uid://dffflwf1cquhj" path="res://Assets/Sound/shutter_beep.mp3" id="2_b562j"]
 [ext_resource type="AudioStream" uid="uid://cj14cti6e1dqt" path="res://Assets/Sound/shutter.mp3" id="2_jafun"]
+[ext_resource type="Script" uid="uid://d37p35ks5c4je" path="res://Scenes/raycast.gd" id="2_odw5a"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_74bvt"]
 viewport_path = NodePath("SubViewport")
@@ -19,6 +20,7 @@ size = Vector2i(128, 128)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" index="0" unique_id=1294657047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21169597)
+script = ExtResource("2_odw5a")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="." index="6" unique_id=829839909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21169597)
