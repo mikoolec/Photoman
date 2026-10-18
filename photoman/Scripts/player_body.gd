@@ -15,6 +15,9 @@ var t_bob = 0.0
 #moje
 @export var aparat:Node3D
 var aparat_held:bool = false
+@onready var aparat_nodes = $AparatNodes
+@onready var aparatheld_pos = $AparatNodes/AparatHeld
+@onready var aparatluz_pos = $AparatNodes/AparatLuz
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -24,8 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-
-
+		
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -52,10 +54,12 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("LMB"):
 		print("zaczynam trzymac lmb, wyjmij aparat")
+		_funky_tween(aparat, "position", aparatheld_pos.position + self.position, 0.2)
 		aparat_held = true
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
+		_funky_tween(aparat, "position", aparatluz_pos.position + self.position, 0.2)
 		aparat_held = false
 	
 	if aparat_held && Input.is_action_just_pressed("RMB"):
@@ -68,3 +72,7 @@ func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * bob_freq) * bob_amp
 	return pos
+
+func _funky_tween(what, how, where, time):
+	var tween = create_tween()
+	tween.tween_property(what, how, where, time)
