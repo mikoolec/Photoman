@@ -12,6 +12,8 @@ const bob_freq = 2.0
 var bob_amp = 0.08
 var t_bob = 0.0
 
+const angle_mul = 0.2
+
 #moje
 @export var aparat:Node3D
 var aparat_held:bool = false
@@ -33,9 +35,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(59))
 		aparat.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		aparat.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		aparat.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(59))
 		#aparat_nodes.rotate_x((-event.relative.y * MOUSE_SENSITIVITY))
 		
 
@@ -64,18 +66,24 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
+	var pos = aparatheld_pos.position
+	pos.y += tan(aparat.rotation.x*0.8)*abs(pos.z)
+	pos.z += abs(abs(pos.z)/cos(aparat.rotation.x*0.8))-abs(pos.z)
+	#print(pos.z)
+	
 	if Input.is_action_just_pressed("LMB"):
 		print("zaczynam trzymac lmb, wyjmij aparat")
 		MOUSE_SENSITIVITY *= 0.1
 		SPEED *= 0.4
 		bob_amp *= 0.2
-		var pos = aparatheld_pos.position
-		#pos.y += sin(aparat.rotation.x)*0.17
+		
+		
 		#pos.z += cos(aparat.rotation.x)*0.05
-		_funky_tween(aparat, "position", pos, 0.2)
 		aparat_held = true
 		beepPlayer.play()
 		
+	if aparat_held:
+		_funky_tween(aparat, "position", pos, 0.2)
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
