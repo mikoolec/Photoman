@@ -42,8 +42,17 @@ emission = Color(0.7883418, 0.12838188, 0.3345048, 1)
 height_falloff = 2.0
 edge_fade = 0.3732115
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_42jam"]
+size = Vector3(2.27, 1, 1.805)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5cj5"]
+size = Vector3(2.34, 1, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyqml"]
+size = Vector3(3.415, 7.22, 4.03)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tp12"]
-size = Vector3(3.55, 6.365, 4.385)
+size = Vector3(5.105, 54.435, 6.215)
 
 [node name="World_node" type="Node3D" unique_id=964926376]
 
@@ -99,8 +108,8 @@ script = ExtResource("5_1tp12")
 object_id = "Tort"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Tort" unique_id=1958109509]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6201718, 0)
-shape = SubResource("BoxShape3D_1tp12")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4139843, 0.6201718, 0)
+shape = SubResource("BoxShape3D_42jam")
 
 [node name="Drukarka" type="Area3D" parent="Meble" unique_id=1249484416 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.979818, 2.014194, 1.094625)
@@ -108,14 +117,32 @@ script = ExtResource("5_1tp12")
 object_id = "Diabelskie urządzenie"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drukarka" unique_id=409105483]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6201718, 0)
-shape = SubResource("BoxShape3D_1tp12")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20009804, 0.6201718, 0)
+shape = SubResource("BoxShape3D_k5cj5")
 
 [node name="Drzewo" type="Area3D" parent="Meble" unique_id=2079851748 groups=["photo_targets"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.242396, -1.9114406, -15.168978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.242396, 1.9480207, -15.168978)
 script = ExtResource("5_1tp12")
 object_id = "Drzewo"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo" unique_id=321028754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 4.317449, 1.1828957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Wieża1" type="Area3D" parent="Meble" unique_id=1099882857 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4736, 11.23781, -25.332903)
+script = ExtResource("5_1tp12")
+object_id = "Wieża 5G"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1" unique_id=785507800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
+shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Wieża2" type="Area3D" parent="Meble" unique_id=935663413 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.953896, 31.97335, 21.895916)
+script = ExtResource("5_1tp12")
+object_id = "Wieża Telewizyjna"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża2" unique_id=791728577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
 shape = SubResource("BoxShape3D_1tp12")
