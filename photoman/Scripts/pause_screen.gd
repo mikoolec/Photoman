@@ -18,6 +18,7 @@ func _on_resume_pressed() -> void:
 	visible = get_tree().paused 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.flush_buffered_events() 
+	get_viewport().set_input_as_handled()
 
 
 func _on_reset_pressed() -> void:
