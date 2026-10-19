@@ -60,6 +60,15 @@ size = Vector3(3.415, 7.22, 4.03)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tp12"]
 size = Vector3(5.105, 54.435, 6.215)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyray"]
+size = Vector3(12.21, 50.285, 12.31)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2j04"]
+size = Vector3(4.03, 1.87, 3.495)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26rrv"]
+size = Vector3(28.815, 39.375, 35.695)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lyqml"]
 shader = ExtResource("8_k5cj5")
 shader_parameter/blur_amount = 2.0
@@ -154,6 +163,33 @@ object_id = "Wieża Telewizyjna"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża2" unique_id=791728577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
 shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Wieża3" type="Area3D" parent="Meble" unique_id=999379873 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4651, 8.117109, -15.174085)
+script = ExtResource("5_1tp12")
+object_id = "Nowa wieża"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża3" unique_id=134010590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
+shape = SubResource("BoxShape3D_kyray")
+
+[node name="Fontanna" type="Area3D" parent="Meble" unique_id=984117925 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.001907, -7.1385775, -26.194988)
+script = ExtResource("5_1tp12")
+object_id = "Fontanna"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Fontanna" unique_id=753701354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.4353304, 1.1828957)
+shape = SubResource("BoxShape3D_l2j04")
+
+[node name="Planeta" type="Area3D" parent="Meble" unique_id=864762940 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5213223, 10.497367, -89.29315)
+script = ExtResource("5_1tp12")
+object_id = "Planeta"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Planeta" unique_id=2062282436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.4353304, 1.1828957)
+shape = SubResource("BoxShape3D_26rrv")
 
 [node name="PauseScreen" type="MarginContainer" parent="." unique_id=1309767303]
 process_mode = 3
