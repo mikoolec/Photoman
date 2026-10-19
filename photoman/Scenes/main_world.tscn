@@ -245,7 +245,7 @@ speed = 0.015
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")
-object_id = "NPC"
+object_id = "NPC1"
 point_value = 88
 
 [node name="npc1" parent="Path3D2/PathFollow3D" unique_id=695859009 instance=ExtResource("6_42jam")]
