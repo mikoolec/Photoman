@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
 [ext_resource type="PackedScene" uid="uid://dtfj63jb56o73" path="res://Scenes/NPC_scenes/npc_1_spider.tscn" id="6_42jam"]
 [ext_resource type="Shader" uid="uid://cvrvcrwurhhje" path="res://Scripts/blur.gdshader" id="8_k5cj5"]
+[ext_resource type="PackedScene" uid="uid://b06wh4jkhftim" path="res://Scenes/NPC_scenes/npc_2_spaceman.tscn" id="9_lyqml"]
+[ext_resource type="PackedScene" uid="uid://cr8efbffdfa3i" path="res://Scenes/NPC_scenes/npc_3_alien.tscn" id="10_oxewe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -80,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
-transform = Transform3D(0.9876176, -0.008530234, 0.15612873, 4.6562323e-10, 0.99844503, 0.054551277, -0.15635863, -0.053880036, 0.9861655, 0.16416979, -0.5466356, 0.36745167)
+transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
 speed = 0.04
 
@@ -162,3 +164,39 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1232213020]
 material = SubResource("ShaderMaterial_lyqml")
 layout_mode = 2
+
+[node name="Path3D3" type="Path3D" parent="." unique_id=746793779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.563986, 2.29735, -11.300407)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3" unique_id=537504949]
+transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+script = ExtResource("5_42jam")
+speed = 0.04
+
+[node name="Npc" parent="Path3D3/PathFollow3D" unique_id=1554993480 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
+script = ExtResource("5_1tp12")
+object_id = "NPC2"
+point_value = 67
+
+[node name="npc2" parent="Path3D3/PathFollow3D" unique_id=1111915536 instance=ExtResource("9_lyqml")]
+
+[node name="Path3D4" type="Path3D" parent="." unique_id=2128083968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.06037, 2.29735, -9.046575)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D4" unique_id=1781286791]
+transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+script = ExtResource("5_42jam")
+speed = 0.04
+
+[node name="Npc" parent="Path3D4/PathFollow3D" unique_id=505653113 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
+script = ExtResource("5_1tp12")
+object_id = "NPC3"
+point_value = 55
+
+[node name="npc3" parent="Path3D4/PathFollow3D" unique_id=920509094 instance=ExtResource("10_oxewe")]
