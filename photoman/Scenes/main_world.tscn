@@ -131,13 +131,12 @@ _data = {
 }
 point_count = 43
 
-[node name="World_node" type="Node3D" unique_id=964926376 node_paths=PackedStringArray("hbox_container_npc", "hbox_container_task", "sub_viewport", "target_sprite", "player_camera", "player")]
+[node name="World_node" type="Node3D" unique_id=964926376 node_paths=PackedStringArray("hbox_container_npc", "hbox_container_task", "sub_viewport", "player_camera", "player")]
 script = ExtResource("1_l2j04")
 hbox_container_npc = NodePath("UI/tasks/VBoxContainer/npc_container")
 hbox_container_task = NodePath("UI/tasks/VBoxContainer/task_container")
 done = ExtResource("15_11cts")
 sub_viewport = NodePath("PlayerBody/aparat/SubViewport")
-target_sprite = NodePath("")
 captured_card_scene = ExtResource("3_dmsjx")
 player_camera = NodePath("PlayerBody/HeadNode/Camera3D")
 npc_photos = Array[Texture2D]([ExtResource("2_t484e"), ExtResource("3_gjypx"), ExtResource("4_wu1r3"), ExtResource("5_w6m2d"), ExtResource("6_yh5jj")])

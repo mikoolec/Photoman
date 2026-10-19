@@ -138,6 +138,8 @@ func spawn_card_from_viewport() -> void:
 	
 	# Uruchomienie sekwencji
 	card_instance.setup_and_start(tex, player_camera)
+	if GlobalNumbers.Capture:
+		save_viewport_to_png()
 
 #func capture_frame_to_sprite() -> void:
 #	# 1. Pobieramy bieżącą teksturę z SubViewporta
@@ -171,3 +173,25 @@ func spawn_card_from_viewport() -> void:
 #	await tween.finished
 #	target_sprite.hide()
 #	target_sprite.modulate.a = 1.0 # Resetujemy przezroczystość dla kolejnego użycia
+
+func save_viewport_to_png(file_name: String = "captured_frame.png") -> void:
+	# 1. Pobieramy teksturę i dane pikselowe (Image)
+	var texture = sub_viewport.get_texture()
+	var image: Image = texture.get_image()
+	
+	# 2. Wybieramy ścieżkę zapisu:
+	# "user://" zapisuje w bezpiecznym folderze danych użytkownika (AppData/Roaming na Windows)
+	# Jeśli chcesz zapisać w folderze z plikiem .exe, użyj "res://" lub ścieżki bezwzględnej (OS.get_system_dir)
+	var save_path = "res://" + file_name
+	
+	# Opcjonalnie: Zapis bezpośrednio na Pulpicie gracza
+	# var desktop_path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
+	# var save_path = desktop_path.path_join(file_name)
+	
+	# 3. Zapisujemy plik PNG
+	var error = image.save_png(save_path)
+	
+	if error == OK:
+		print("Pomyślnie zapisano plik PNG w: ", ProjectSettings.globalize_path(save_path))
+	else:
+		print("Błąd podczas zapisywania pliku PNG: ", error)

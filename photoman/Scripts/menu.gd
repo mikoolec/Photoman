@@ -1,10 +1,19 @@
 extends MarginContainer
 
 @onready var bounce_b = $VBoxContainer/BounceButton
+@onready var capture_b = $VBoxContainer/CaptureButton
+@onready var exit_b = $VBoxContainer/QuitButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	
+	if OS.has_feature("web"):
+		# Logika tylko dla wersji przeglądarkowej (np. ukryj przycisk Exit)
+		exit_b.hide()
+		capture_b.hide()
+	elif OS.has_feature("pc"):
+		# Logika dla wersji PC
+		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,10 +29,20 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_bounce_button_pressed() -> void:
-	pass # Replace with function body.
+	 # Replace with function body.
 	if GlobalNumbers.Bounce:
 		GlobalNumbers.Bounce = false
 		bounce_b.text = "Funny Bounce: Off"
 	else:
 		GlobalNumbers.Bounce = true
 		bounce_b.text = "Funny Bounce: On"
+
+
+func _on_capture_button_pressed() -> void:
+	 # Replace with function body.
+	if GlobalNumbers.Capture:
+		GlobalNumbers.Capture = false
+		capture_b.text = "Save Photos: Off"
+	else:
+		GlobalNumbers.Capture = true
+		capture_b.text = "Save Photos: On"

@@ -57,6 +57,10 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Quit"
 
+[node name="CaptureButton" type="Button" parent="VBoxContainer" unique_id=1294783337]
+layout_mode = 2
+text = "Save Photos: Off"
+
 [node name="BounceButton" type="Button" parent="VBoxContainer" unique_id=998800049]
 layout_mode = 2
 text = "Funny Bounce: Off"
@@ -77,4 +81,5 @@ stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CaptureButton" to="." method="_on_capture_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BounceButton" to="." method="_on_bounce_button_pressed"]
