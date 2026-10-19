@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://j620ujeobqto"]
 
 [ext_resource type="PackedScene" uid="uid://b3iuhcln22ju6" path="res://Scenes/player_body.tscn" id="1_at2u3"]
+[ext_resource type="Script" uid="uid://d3nuot34p8q45" path="res://Scripts/main_world.gd" id="1_l2j04"]
 [ext_resource type="PackedScene" uid="uid://b8lon5qkaw1qs" path="res://Scenes/city.tscn" id="2_ekhe2"]
 [ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
 [ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://Scripts/photo_targets.gd" id="5_1tp12"]
@@ -75,6 +76,7 @@ shader = ExtResource("8_k5cj5")
 shader_parameter/blur_amount = 2.0
 
 [node name="World_node" type="Node3D" unique_id=964926376]
+script = ExtResource("1_l2j04")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1908263488]
 environment = SubResource("Environment_ekhe2")
@@ -296,6 +298,16 @@ point_value = 33
 
 [node name="npc5" parent="Path3D6/PathFollow3D" unique_id=1388169108 instance=ExtResource("13_26rrv")]
 transform = Transform3D(0.9877794, 0, -0.15638423, -0.008531363, 0.9985771, -0.053887166, 0.15614839, 0.05455814, 0.9862897, -0.10470009, 0.5670595, -0.35822487)
+[node name="UI" type="Control" parent="." unique_id=22466270]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI" unique_id=1905198693]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
