@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://8vscqyt4g0i" path="res://Scripts/pause_screen.gd" id="9_oxewe"]
 [ext_resource type="PackedScene" uid="uid://cr8efbffdfa3i" path="res://Scenes/NPC_scenes/npc_3_alien.tscn" id="10_oxewe"]
 [ext_resource type="PackedScene" uid="uid://bi1klmet55hu6" path="res://Scenes/NPC_scenes/npc_4_eye.tscn" id="12_l2j04"]
+[ext_resource type="PackedScene" uid="uid://dfogw4xi365hb" path="res://Scenes/NPC_scenes/npc_5_longdog.tscn" id="13_26rrv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -276,6 +277,25 @@ object_id = "NPC4"
 point_value = 40
 
 [node name="npc4" parent="Path3D5/PathFollow3D" unique_id=894029881 instance=ExtResource("12_l2j04")]
+
+[node name="Path3D6" type="Path3D" parent="." unique_id=1687007061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.322047, 2.29735, -21.539814)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D6" unique_id=1653698597]
+transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+script = ExtResource("5_42jam")
+speed = 0.04
+
+[node name="Npc" parent="Path3D6/PathFollow3D" unique_id=1353411970 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
+script = ExtResource("5_1tp12")
+object_id = "NPC5"
+point_value = 33
+
+[node name="npc5" parent="Path3D6/PathFollow3D" unique_id=1388169108 instance=ExtResource("13_26rrv")]
+transform = Transform3D(0.9877794, 0, -0.15638423, -0.008531363, 0.9985771, -0.053887166, 0.15614839, 0.05455814, 0.9862897, -0.10470009, 0.5670595, -0.35822487)
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
