@@ -4,7 +4,6 @@ extends CharacterBody3D
 @export var MOUSE_SENSITIVITY_ref = 0.01
 @export var bob_amp_ref = 0.08
 
-var task_table
 
 var SPEED = SPEED_ref
 const JUMP_VELOCITY = 4.5
@@ -108,7 +107,17 @@ func _physics_process(delta: float) -> void:
 		shutter.play()
 		aparat_anim.play("Click")
 		subViewport.render_target_update_mode = SubViewport.UPDATE_ONCE
-		print(aparats_camera.scan_visible_objects())
+		var tab = aparats_camera.scan_visible_objects()
+		print(tab)
+		for i in range(1,4):
+			for each in tab:
+				if each["name"] == "NPC"+str(i):
+					for each2 in tab:
+						print(get_parent().task_table[i-1])
+						if each2["name"] == get_parent().task_table[i-1]:
+							get_parent().task_table.remove_at(i-1)
+							print("Zrobione")
+					print("Mamy gówniarza nr "+str(i))
 		
 	
 	move_and_slide()
