@@ -39,5 +39,12 @@ func _process(delta: float) -> void:
 	var text = "{0}:{1}"
 	timer.text = text.format(["%02d" % minutes, "%02d" % seconds])
 	tasks_Label.text = "Tasks: " + str(task_table)
+	var test:bool = false
+	for each in task_table:
+		if each != "":
+			test = true
+			break
+	if !test:
+		$PauseScreen.pause(true)
 	
 	
