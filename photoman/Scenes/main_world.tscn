@@ -270,6 +270,10 @@ label_settings = SubResource("LabelSettings_w1t3d")
 layout_mode = 2
 text = "Resume"
 
+[node name="Unstuck" type="Button" parent="PauseScreen/VBoxContainer" unique_id=926526537]
+layout_mode = 2
+text = "Unstuck"
+
 [node name="Reset" type="Button" parent="PauseScreen/VBoxContainer" unique_id=1333179391]
 layout_mode = 2
 text = "Reset level"
@@ -447,5 +451,6 @@ layout_mode = 2
 texture = ExtResource("15_11cts")
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/Unstuck" to="PlayerBody" method="_unstuck"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Exit" to="PauseScreen" method="_on_exit_pressed"]
