@@ -26,3 +26,5 @@ func _process(delta: float) -> void:
 	var text = "{0}:{1}"
 	timer.text = text.format(["%02d" % minutes, "%02d" % seconds])
 	tasks_Label.text = "Tasks: " + str(task_table)
+	
+	

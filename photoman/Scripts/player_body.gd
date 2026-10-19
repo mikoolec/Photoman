@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 					for each2 in tab:
 						print(get_parent().task_table[i-1])
 						if each2["name"] == get_parent().task_table[i-1]:
-							get_parent().task_table.remove_at(i-1)
+							get_parent().task_table[i-1] = ""
 							print("Zrobione")
 					print("Mamy gówniarza nr "+str(i))
 		
