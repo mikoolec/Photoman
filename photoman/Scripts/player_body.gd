@@ -1,15 +1,19 @@
 extends CharacterBody3D
 
-var SPEED = 5.0
+@export var SPEED_ref = 5.0
+@export var MOUSE_SENSITIVITY_ref = 0.01
+@export var bob_amp_ref = 0.08
+
+var SPEED = SPEED_ref
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 2
-var MOUSE_SENSITIVITY = 0.01
+var MOUSE_SENSITIVITY = MOUSE_SENSITIVITY_ref
 
 @onready var head = $HeadNode
 @onready var camera = $HeadNode/Camera3D
 
 const bob_freq = 2.0
-var bob_amp = 0.08
+var bob_amp = bob_amp_ref
 var t_bob = 0.0
 
 const angle_mul = 0.2
@@ -88,9 +92,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("LMB"):
 		print("puscilem aparat, schowaj")
-		MOUSE_SENSITIVITY *= 10
-		SPEED *= 2.5
-		bob_amp *= 5
+		MOUSE_SENSITIVITY = MOUSE_SENSITIVITY_ref
+		SPEED = SPEED_ref
+		bob_amp *= bob_amp_ref
 		_funky_tween(aparat, "position", aparatluz_pos.position, 0.2)
 		aparat_held = false
 	
