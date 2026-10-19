@@ -110,12 +110,22 @@ func _physics_process(delta: float) -> void:
 		
 	
 	move_and_slide()
+	
+	_check_fall()
 
 func _on_shutter_finished() -> void:
 	print("The shutter sound has finished playing completely!")
 	subViewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	can_shoot = true
 	
+func _check_fall() -> void:
+	if position.y < -12.0:
+		velocity.y = 30
+		
+		#ZMIENIC NA DOLNE PRZED SKONCZENIEM
+		
+	#	velocity = Vector3.ZERO
+	#	position = Vector3(25.77, 2.192, -25.7)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

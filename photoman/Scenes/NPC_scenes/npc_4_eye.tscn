@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bi1klmet55hu6"]
+
+[ext_resource type="PackedScene" uid="uid://dcnabxr6wk8k2" path="res://Assets/Blend/NPCs/npc4.blend" id="1_2i57e"]
+
+[node name="npc4" unique_id=894029881 instance=ExtResource("1_2i57e")]

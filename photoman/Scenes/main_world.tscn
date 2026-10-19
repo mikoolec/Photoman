@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b06wh4jkhftim" path="res://Scenes/NPC_scenes/npc_2_spaceman.tscn" id="9_lyqml"]
 [ext_resource type="Script" uid="uid://8vscqyt4g0i" path="res://Scripts/pause_screen.gd" id="9_oxewe"]
 [ext_resource type="PackedScene" uid="uid://cr8efbffdfa3i" path="res://Scenes/NPC_scenes/npc_3_alien.tscn" id="10_oxewe"]
+[ext_resource type="PackedScene" uid="uid://bi1klmet55hu6" path="res://Scenes/NPC_scenes/npc_4_eye.tscn" id="12_l2j04"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -73,7 +74,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="PlayerBody" parent="." unique_id=1388397539 instance=ExtResource("1_at2u3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3459191, 0.8033385, -17.146282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.773272, 2.1923158, -25.791424)
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
@@ -221,6 +222,24 @@ object_id = "NPC3"
 point_value = 55
 
 [node name="npc3" parent="Path3D4/PathFollow3D" unique_id=920509094 instance=ExtResource("10_oxewe")]
+
+[node name="Path3D5" type="Path3D" parent="." unique_id=508184892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252476, 2.29735, -13.281895)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D5" unique_id=1077195101]
+transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+script = ExtResource("5_42jam")
+speed = 0.04
+
+[node name="Npc" parent="Path3D5/PathFollow3D" unique_id=863362219 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
+script = ExtResource("5_1tp12")
+object_id = "NPC4"
+point_value = 40
+
+[node name="npc4" parent="Path3D5/PathFollow3D" unique_id=894029881 instance=ExtResource("12_l2j04")]
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
