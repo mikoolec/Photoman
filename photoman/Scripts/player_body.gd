@@ -150,11 +150,12 @@ func _on_shutter_finished() -> void:
 	can_shoot = true
 	
 func _check_fall() -> void:
+
 	if position.y < -10.0 and not is_teleporting:
 		is_teleporting = true
 		_start_fall_teleport()
 
-func _start_fall_teleport() -> void:
+func _unstuck() -> void:
 	# Resety prędkości natychmiast
 	
 	
@@ -178,6 +179,7 @@ func _start_fall_teleport() -> void:
 	# Przywrócenie możliwości ponownego wywołania po rozjaśnieniu
 	await tween_fade_out.finished
 	is_teleporting = false
+
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
