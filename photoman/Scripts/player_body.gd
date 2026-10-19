@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var MOUSE_SENSITIVITY_ref = 0.01
 @export var bob_amp_ref = 0.08
 
+var task_table
+
 var SPEED = SPEED_ref
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 2

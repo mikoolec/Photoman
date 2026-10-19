@@ -3,11 +3,18 @@ extends Node3D
 @onready var timer = $UI/Label
 var time = 0
 
-var tasks = [["Tree", "RTV Tower", "Planet", "Printer"], ["Planet", "New Tower", "7G Tower"], ["Fountain", "RTV Tower", "Tree", "Planet"]]
+var tasks = [
+	["Tree", "RTV Tower", "Planet", "Printer"], 
+	["Planet", "New Tower", "7G Tower"], 
+	["Fountain", "RTV Tower", "Tree", "Planet"]
+]
 
+var task_table = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in tasks:
+		task_table.append(i.pick_random())
+	print(task_table)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
