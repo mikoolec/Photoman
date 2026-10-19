@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var timer = $UI/Label
+@onready var timer = $UI/tasks/VBoxContainer/Label
 @onready var tasks_Label = $UI/Tasks
 @export var hbox_container_npc:HBoxContainer
 @export var hbox_container_task:HBoxContainer
@@ -23,6 +23,7 @@ var tasks = [
 var npcs = [
 	"NPC1", "NPC2", "NPC3", "NPC4", "NPC5"
 ]
+
 
 var npc_table:Array = []
 var task_table:Array = []

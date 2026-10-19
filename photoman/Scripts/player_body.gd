@@ -4,6 +4,10 @@ extends CharacterBody3D
 @export var MOUSE_SENSITIVITY_ref = 0.01
 @export var bob_amp_ref = 0.08
 
+@export var fade_rect: ColorRect # Przeciągnij tutaj ColorRect w Inspektorze
+@export var respawn_position: Vector3 = Vector3(25.77, 2.192, -25.7)
+
+var is_teleporting: bool = false
 
 var SPEED = SPEED_ref
 const JUMP_VELOCITY = 4.5
@@ -146,13 +150,34 @@ func _on_shutter_finished() -> void:
 	can_shoot = true
 	
 func _check_fall() -> void:
-	if position.y < -12.0:
-		#velocity.y = 30
-		
-		#ZMIENIC NA DOLNE PRZED SKONCZENIEM
-		
-		velocity = Vector3.ZERO
-		position = Vector3(25.77, 2.192, -25.7)
+	if position.y < -10.0 and not is_teleporting:
+		is_teleporting = true
+		_start_fall_teleport()
+
+func _start_fall_teleport() -> void:
+	# Resety prędkości natychmiast
+	
+	
+	# Tworzymy Tween do obsługi animacji i czekania
+	var tween = create_tween()
+	
+	# 1. Ściemnienie na czarno w 1 sekundę (zmieniamy Alfa w ColorRect na 1.0)
+	tween.tween_property(fade_rect, "color:a", 1.0, 0.6)
+	
+	# Czekamy na zakończenie ściemniania
+	await tween.finished
+	
+	# 2. Teleportacja gracza gdy ekran jest całkowicie czarny
+	position = respawn_position
+	velocity = Vector3.ZERO
+	
+	# 3. Rozjaśnienie ekranu w 1 sekundę (zmieniamy Alfa w ColorRect na 0.0)
+	var tween_fade_out = create_tween()
+	tween_fade_out.tween_property(fade_rect, "color:a", 0.0, 1.5)
+	
+	# Przywrócenie możliwości ponownego wywołania po rozjaśnieniu
+	await tween_fade_out.finished
+	is_teleporting = false
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

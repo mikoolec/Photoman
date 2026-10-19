@@ -142,8 +142,9 @@ environment = SubResource("Environment_ekhe2")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -11.08297, 30.57016, 43.551888)
 shadow_enabled = true
 
-[node name="PlayerBody" parent="." unique_id=1388397539 node_paths=PackedStringArray("world_node") instance=ExtResource("1_at2u3")]
+[node name="PlayerBody" parent="." unique_id=1388397539 node_paths=PackedStringArray("fade_rect", "world_node") instance=ExtResource("1_at2u3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.773272, 2.1923158, -25.791424)
+fade_rect = NodePath("../UI/CanvasLayer/ColorRect")
 world_node = NodePath("..")
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
@@ -375,12 +376,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="UI" unique_id=1905198693]
-layout_mode = 0
-offset_left = 7.0
-offset_right = 47.0
-offset_bottom = 23.0
-
 [node name="Tasks" type="Label" parent="UI" unique_id=1080548843]
 visible = false
 layout_mode = 0
@@ -445,6 +440,22 @@ texture = ExtResource("15_11cts")
 [node name="t5" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=706244339]
 layout_mode = 2
 texture = ExtResource("15_11cts")
+
+[node name="Label" type="Label" parent="UI/tasks/VBoxContainer" unique_id=1905198693]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "uwu111"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=219508182]
+
+[node name="ColorRect" type="ColorRect" parent="UI/CanvasLayer" unique_id=1653675035]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
