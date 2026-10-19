@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var you_win = $VBoxContainer/YouWin
 @onready var time = $VBoxContainer/Time
 @onready var resume = $VBoxContainer/Resume
+@onready var unstuck = $VBoxContainer/Unstuck
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Escape"):
@@ -17,6 +18,7 @@ func pause(won: bool = false) -> void:
 		resume.visible = false
 		you_win.visible = true
 		time.visible = true
+		unstuck.visible = false
 		var timer_time = get_parent().time
 		var minutes = int(timer_time)/60
 		var seconds = int(timer_time)%60
@@ -28,6 +30,7 @@ func pause(won: bool = false) -> void:
 		resume.visible = true
 		you_win.visible = false
 		time.visible = false
+		unstuck.visible = true
 		
 	if (visible):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
