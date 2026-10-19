@@ -35,14 +35,6 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.72063166, 0.598306, 0.72932553, 1)
 
-[sub_resource type="Curve3D" id="Curve3D_k5cj5"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.16416979, -0.5466356, 0.36745167, 0, 0, 0, 0, 0, 0, -0.49790168, -0.7779629, -3.8144302, 0, 0, 0, 0, 0, 0, 0.2645886, -0.73144096, -6.8282166, 0, 0, 0, 0, 0, 0, 3.5408602, -0.6618483, -7.7349987, 0, 0, 0, 0, 0, 0, 7.7815027, -0.5309464, -5.4657774, 0, 0, 0, 0, 0, 0, 7.893747, -0.5345707, 0.2305603),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
 [sub_resource type="FogMaterial" id="FogMaterial_uq1df"]
 density = 1.5543
 albedo = Color(0.79679346, 0, 0.21276283, 1)
@@ -75,6 +67,14 @@ size = Vector3(28.815, 39.375, 35.695)
 shader = ExtResource("8_k5cj5")
 shader_parameter/blur_amount = 2.0
 
+[sub_resource type="Curve3D" id="Curve3D_k5cj5"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.3074565, -0.5466356, 0.36745167, 0, 0, 0, 0, 0, 0, -0.007465124, -0.6086757, -0.75112057, 0, 0, 0, 0, 0, 0, -0.4708066, -0.7761576, -3.770792, 0, 0, 0, 0, 0, 0, 0.2645886, -0.73144096, -6.8282166, 0, 0, 0, 0, 0, 0, 3.5408602, -0.6618483, -7.7349987, 0, 0, 0, 0, 0, 0, 7.7815027, -0.5309464, -5.4657774, 0, 0, 0, 0, 0, 0, 10.366036, -0.41398787, -4.8223524, 0, 0, 0, 0, 0, 0, 10.121982, 1.5443983, 2.5580883, 0, 0, 0, 0, 0, 0, 21.183811, 1.5495677, 3.1380181, 0, 0, 0, 0, 0, 0, 22.09282, 1.631149, 6.4904175, 0, 0, 0, 0, 0, 0, 24.355055, 1.6239489, 8.028997, 0, 0, 0, 0, 0, 0, 25.411928, 1.6167464, 8.203877, 0, 0, 0, 0, 0, 0, 25.916674, 1.6135116, 8.829451, 0, 0, 0, 0, 0, 0, 25.601871, 1.6060803, 9.266973, 0, 0, 0, 0, 0, 0, 25.0345, 1.6019148, 9.40311, 0, 0, 0, 0, 0, 0, 23.084364, 1.5949004, 8.441814, 0, 0, 0, 0, 0, 0, 22.240698, 1.5962126, 5.951383, 0, 0, 0, 0, 0, 0, 21.124107, 1.5922118, 3.90386, 0, 0, 0, 0, 0, 0, 10.01883, 1.5163608, 2.911943, 0, 0, 0, 0, 0, 0, 9.866218, -0.36346483, -4.812867, 0, 0, 0, 0, 0, 0, 7.456789, -0.4179412, -4.6548967, 0, 0, 0, 0, 0, 0, 6.5049353, -0.4362108, -1.8955994, 0, 0, 0, 0, 0, 0, 7.0857344, -0.4686749, -0.23680782, 0, 0, 0, 0, 0, 0, 6.251177, -0.4911741, 0.6050377, 0, 0, 0, 0, 0, 0, 4.688932, -0.5345707, 0.6476612),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 25
+
 [node name="World_node" type="Node3D" unique_id=964926376]
 script = ExtResource("1_l2j04")
 
@@ -90,24 +90,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.773272, 2.1923158, -25.791
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
-
-[node name="Path3D2" type="Path3D" parent="." unique_id=1389304285]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7839923, 0, -10.271084)
-curve = SubResource("Curve3D_k5cj5")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
-transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
-script = ExtResource("5_42jam")
-speed = 0.04
-
-[node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
-transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
-visible = false
-script = ExtResource("5_1tp12")
-object_id = "NPC"
-point_value = 88
-
-[node name="npc1" parent="Path3D2/PathFollow3D" unique_id=695859009 instance=ExtResource("6_42jam")]
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=1427353197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8881836, -16.496956, 4.279772)
@@ -226,12 +208,30 @@ text = "Reset level"
 layout_mode = 2
 text = "Exit to menu"
 
+[node name="Path3D2" type="Path3D" parent="." unique_id=1389304285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8063552, 0, -10.310802)
+curve = SubResource("Curve3D_k5cj5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1887113293]
+transform = Transform3D(0.6478936, -0.027353583, 0.7611453, 0, 0.9992881, 0.03591204, -0.761622, -0.023269035, 0.64748806, 1.3074565, -0.5466356, 0.36745167)
+script = ExtResource("5_42jam")
+speed = 0.01
+
+[node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
+visible = false
+script = ExtResource("5_1tp12")
+object_id = "NPC"
+point_value = 88
+
+[node name="npc1" parent="Path3D2/PathFollow3D" unique_id=695859009 instance=ExtResource("6_42jam")]
+
 [node name="Path3D3" type="Path3D" parent="." unique_id=746793779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.563986, 2.29735, -11.300407)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3" unique_id=537504949]
-transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+transform = Transform3D(0.6478936, -0.027353583, 0.7611453, 0, 0.9992881, 0.03591204, -0.761622, -0.023269035, 0.64748806, 1.3074565, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
 speed = 0.04
 
@@ -249,7 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.06037, 2.29735, -9.046575)
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D4" unique_id=1781286791]
-transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+transform = Transform3D(0.6478936, -0.027353583, 0.7611453, 0, 0.9992881, 0.03591204, -0.761622, -0.023269035, 0.64748806, 1.3074565, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
 speed = 0.04
 
@@ -267,7 +267,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252476, 2.29735, -13.2818
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D5" unique_id=1077195101]
-transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+transform = Transform3D(0.6478936, -0.027353583, 0.7611453, 0, 0.9992881, 0.03591204, -0.761622, -0.023269035, 0.64748806, 1.3074565, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
 speed = 0.04
 
@@ -285,7 +285,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.322047, 2.29735, -21.53981
 curve = SubResource("Curve3D_k5cj5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D6" unique_id=1653698597]
-transform = Transform3D(0.9876173, -0.008530228, 0.15612869, 4.656231e-10, 0.99844444, 0.05455126, -0.15635858, -0.053880006, 0.9861652, 0.16416979, -0.5466356, 0.36745167)
+transform = Transform3D(0.6478936, -0.027353583, 0.7611453, 0, 0.9992881, 0.03591204, -0.761622, -0.023269035, 0.64748806, 1.3074565, -0.5466356, 0.36745167)
 script = ExtResource("5_42jam")
 speed = 0.04
 
@@ -298,6 +298,7 @@ point_value = 33
 
 [node name="npc5" parent="Path3D6/PathFollow3D" unique_id=1388169108 instance=ExtResource("13_26rrv")]
 transform = Transform3D(0.9877794, 0, -0.15638423, -0.008531363, 0.9985771, -0.053887166, 0.15614839, 0.05455814, 0.9862897, -0.10470009, 0.5670595, -0.35822487)
+
 [node name="UI" type="Control" parent="." unique_id=22466270]
 layout_mode = 3
 anchors_preset = 0
