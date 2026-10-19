@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boysvhfkepnhq"]
 
-[ext_resource type="Script" uid="uid://xf52jcmso8tm" path="res://Scenes/menu.gd" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://xf52jcmso8tm" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="AudioStream" uid="uid://d3477ihlvl8k8" path="res://Assets/Music/menu-song.mp3" id="2_xhh6f"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4yt8"]
 
@@ -35,6 +36,11 @@ text = "Settings"
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=904526113]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2053140610]
+stream = ExtResource("2_xhh6f")
+volume_db = -14.596
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
