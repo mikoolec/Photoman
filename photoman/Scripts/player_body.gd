@@ -147,12 +147,12 @@ func _on_shutter_finished() -> void:
 	
 func _check_fall() -> void:
 	if position.y < -12.0:
-		velocity.y = 30
+		#velocity.y = 30
 		
 		#ZMIENIC NA DOLNE PRZED SKONCZENIEM
 		
-	#	velocity = Vector3.ZERO
-	#	position = Vector3(25.77, 2.192, -25.7)
+		velocity = Vector3.ZERO
+		position = Vector3(25.77, 2.192, -25.7)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
