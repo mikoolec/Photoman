@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scripts/path_follow_3d.gd" id="5_42jam"]
 [ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
 [ext_resource type="PackedScene" uid="uid://dtfj63jb56o73" path="res://Scenes/NPC_scenes/npc_1_spider.tscn" id="6_42jam"]
+[ext_resource type="Shader" uid="uid://cvrvcrwurhhje" path="res://Scripts/blur.gdshader" id="8_k5cj5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -54,6 +55,10 @@ size = Vector3(3.415, 7.22, 4.03)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tp12"]
 size = Vector3(5.105, 54.435, 6.215)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyqml"]
+shader = ExtResource("8_k5cj5")
+shader_parameter/blur_amount = 2.0
 
 [node name="World_node" type="Node3D" unique_id=964926376]
 
@@ -145,3 +150,15 @@ object_id = "Wieża Telewizyjna"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża2" unique_id=791728577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
 shape = SubResource("BoxShape3D_1tp12")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1309767303]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1232213020]
+material = SubResource("ShaderMaterial_lyqml")
+layout_mode = 2
