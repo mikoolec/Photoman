@@ -21,6 +21,8 @@ const angle_mul = 0.2
 
 #moje
 @export var aparat:Node3D
+@export var world_node:Node3D
+
 var aparat_held:bool = false
 var can_shoot:bool = true
 @onready var aparat_nodes = $AparatNodes
@@ -32,6 +34,8 @@ var can_shoot:bool = true
 @onready var beepPlayer = $aparat/ShutterBeeper
 @onready var shutter = $aparat/Shutter
 @onready var subViewport = $aparat/SubViewport
+
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -109,15 +113,27 @@ func _physics_process(delta: float) -> void:
 		subViewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 		var tab = aparats_camera.scan_visible_objects()
 		print(tab)
-		for i in range(1,4):
+		for i in range(0,5):
 			for each in tab:
-				if each["name"] == "NPC"+str(i):
-					for each2 in tab:
-						print(get_parent().task_table[i-1])
-						if each2["name"] == get_parent().task_table[i-1]:
-							get_parent().task_table[i-1] = ""
-							print("Zrobione")
-					print("Mamy gówniarza nr "+str(i))
+				if each["name"].contains("NPC"):
+					if world_node.npc_table[i] == each["name"]:
+						for each2 in tab:
+							if each2["name"] == world_node.task_table[i]:
+								world_node.npc_table[i] = ""
+								world_node.task_table[i] = ""
+						
+						
+						#for npc_target in get_parent().npc_table:
+						#	if npc_target == each["name"]:
+						#		if get_parent().task_table()[get_parent().npc_table.find( npc_target )] == each2["name"]:
+						#			get_parent().task_table[i-1] = ""
+						#			get_parent().task_table[i-1] = ""
+						#			print("Zrobione")
+						#print(get_parent().task_table[i-1])
+						#if each2["name"] == get_parent().task_table[i-1]:
+						#	get_parent().task_table[i-1] = ""
+						#	print("Zrobione")
+					#print("Mamy gówniarza nr "+str(i))
 		
 	
 	move_and_slide()

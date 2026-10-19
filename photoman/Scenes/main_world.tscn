@@ -3,17 +3,30 @@
 [ext_resource type="PackedScene" uid="uid://b3iuhcln22ju6" path="res://Scenes/player_body.tscn" id="1_at2u3"]
 [ext_resource type="Script" uid="uid://d3nuot34p8q45" path="res://Scripts/main_world.gd" id="1_l2j04"]
 [ext_resource type="PackedScene" uid="uid://b8lon5qkaw1qs" path="res://Scenes/city.tscn" id="2_ekhe2"]
+[ext_resource type="Texture2D" uid="uid://gfb6chmbcvwx" path="res://Assets/Image/renders/npc1.png" id="2_t484e"]
+[ext_resource type="Texture2D" uid="uid://dkmd4ihbdn2kd" path="res://Assets/Image/renders/npc2.png" id="3_gjypx"]
 [ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
+[ext_resource type="Texture2D" uid="uid://bfgorhcutvsgq" path="res://Assets/Image/renders/npc3.png" id="4_wu1r3"]
 [ext_resource type="Script" uid="uid://djdhiq5rng0rj" path="res://Scripts/photo_targets.gd" id="5_1tp12"]
 [ext_resource type="Script" uid="uid://dk52j6q6udo8n" path="res://Scripts/path_follow_3d.gd" id="5_42jam"]
+[ext_resource type="Texture2D" uid="uid://h27ro3cok3fv" path="res://Assets/Image/renders/npc4.png" id="5_w6m2d"]
 [ext_resource type="AudioStream" uid="uid://dg5sy2b3c24l2" path="res://Assets/Music/d-major-waltz.mp3" id="6_1tp12"]
 [ext_resource type="PackedScene" uid="uid://dtfj63jb56o73" path="res://Scenes/NPC_scenes/npc_1_spider.tscn" id="6_42jam"]
+[ext_resource type="Texture2D" uid="uid://mcfeevrm53we" path="res://Assets/Image/renders/npc5.png" id="6_yh5jj"]
+[ext_resource type="Texture2D" uid="uid://dbykefoa1p63b" path="res://Assets/Image/renders/tree.png" id="7_nuelh"]
+[ext_resource type="Texture2D" uid="uid://w5yoob1r7aqr" path="res://Assets/Image/renders/rtv_tower.png" id="8_8vilc"]
 [ext_resource type="Shader" uid="uid://cvrvcrwurhhje" path="res://Scripts/blur.gdshader" id="8_k5cj5"]
+[ext_resource type="Texture2D" uid="uid://ch0gypo7t2w3g" path="res://Assets/Image/renders/balls_tower.png" id="9_c2nsa"]
 [ext_resource type="PackedScene" uid="uid://b06wh4jkhftim" path="res://Scenes/NPC_scenes/npc_2_spaceman.tscn" id="9_lyqml"]
 [ext_resource type="Script" uid="uid://8vscqyt4g0i" path="res://Scripts/pause_screen.gd" id="9_oxewe"]
+[ext_resource type="Texture2D" uid="uid://fne2iyc853pu" path="res://Assets/Image/renders/fountain.png" id="10_dmsjx"]
 [ext_resource type="PackedScene" uid="uid://cr8efbffdfa3i" path="res://Scenes/NPC_scenes/npc_3_alien.tscn" id="10_oxewe"]
+[ext_resource type="Texture2D" uid="uid://ba2tl61ert4me" path="res://Assets/Image/renders/planet.png" id="11_ad8eb"]
 [ext_resource type="PackedScene" uid="uid://bi1klmet55hu6" path="res://Scenes/NPC_scenes/npc_4_eye.tscn" id="12_l2j04"]
+[ext_resource type="Texture2D" uid="uid://d4m80m316n4oe" path="res://Assets/Image/renders/evil_tower.png" id="12_x7h1o"]
 [ext_resource type="PackedScene" uid="uid://dfogw4xi365hb" path="res://Scenes/NPC_scenes/npc_5_longdog.tscn" id="13_26rrv"]
+[ext_resource type="Texture2D" uid="uid://gpmdpg1l3juy" path="res://Assets/Image/renders/cake.png" id="14_8vilc"]
+[ext_resource type="Texture2D" uid="uid://bv6rs5d5hl1jt" path="res://Assets/Image/renders/done.png" id="15_11cts"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -113,8 +126,13 @@ _data = {
 }
 point_count = 43
 
-[node name="World_node" type="Node3D" unique_id=964926376]
+[node name="World_node" type="Node3D" unique_id=964926376 node_paths=PackedStringArray("hbox_container_npc", "hbox_container_task")]
 script = ExtResource("1_l2j04")
+hbox_container_npc = NodePath("UI/tasks/VBoxContainer/npc_container")
+hbox_container_task = NodePath("UI/tasks/VBoxContainer/task_container")
+done = ExtResource("15_11cts")
+npc_photos = Array[Texture2D]([ExtResource("2_t484e"), ExtResource("3_gjypx"), ExtResource("4_wu1r3"), ExtResource("5_w6m2d"), ExtResource("6_yh5jj")])
+place_photos = Array[Texture2D]([ExtResource("7_nuelh"), ExtResource("8_8vilc"), ExtResource("9_c2nsa"), ExtResource("10_dmsjx"), ExtResource("11_ad8eb"), ExtResource("12_x7h1o"), ExtResource("14_8vilc")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1908263488]
 environment = SubResource("Environment_ekhe2")
@@ -123,8 +141,9 @@ environment = SubResource("Environment_ekhe2")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -11.08297, 30.57016, 43.551888)
 shadow_enabled = true
 
-[node name="PlayerBody" parent="." unique_id=1388397539 instance=ExtResource("1_at2u3")]
+[node name="PlayerBody" parent="." unique_id=1388397539 node_paths=PackedStringArray("world_node") instance=ExtResource("1_at2u3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.773272, 2.1923158, -25.791424)
+world_node = NodePath("..")
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
@@ -362,10 +381,69 @@ offset_right = 47.0
 offset_bottom = 23.0
 
 [node name="Tasks" type="Label" parent="UI" unique_id=1080548843]
+visible = false
 layout_mode = 0
 offset_top = 36.0
 offset_right = 172.0
 offset_bottom = 59.0
+
+[node name="tasks" type="Control" parent="UI" unique_id=1397164371]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/tasks" unique_id=632998737]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 1003.0
+offset_bottom = 396.0
+
+[node name="npc_container" type="HBoxContainer" parent="UI/tasks/VBoxContainer" unique_id=535372622]
+layout_mode = 2
+
+[node name="n1" type="TextureRect" parent="UI/tasks/VBoxContainer/npc_container" unique_id=1858226975]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="n2" type="TextureRect" parent="UI/tasks/VBoxContainer/npc_container" unique_id=586132178]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="n3" type="TextureRect" parent="UI/tasks/VBoxContainer/npc_container" unique_id=1008498650]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="n4" type="TextureRect" parent="UI/tasks/VBoxContainer/npc_container" unique_id=405558870]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="n5" type="TextureRect" parent="UI/tasks/VBoxContainer/npc_container" unique_id=2029928436]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="task_container" type="HBoxContainer" parent="UI/tasks/VBoxContainer" unique_id=976643317]
+layout_mode = 2
+
+[node name="t1" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=445860053]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="t2" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=1074439041]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="t3" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=640340123]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="t4" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=1928599899]
+layout_mode = 2
+texture = ExtResource("15_11cts")
+
+[node name="t5" type="TextureRect" parent="UI/tasks/VBoxContainer/task_container" unique_id=706244339]
+layout_mode = 2
+texture = ExtResource("15_11cts")
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
