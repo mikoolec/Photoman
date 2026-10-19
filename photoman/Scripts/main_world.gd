@@ -4,17 +4,30 @@ extends Node3D
 @onready var tasks_Label = $UI/Tasks
 var time = 0
 
+var tasks_finished: int = 0
+
 var tasks = [
-	["Tree", "RTV Tower", "Planet", "Printer"], 
-	["Planet", "New Tower", "7G Tower"], 
-	["Fountain", "RTV Tower", "Tree", "Planet"]
+	["Tree", "RTV", "Planet", "Printer"], 
+	["Planet", "EvilTower", "BallTower"], 
+	["Fountain", "RTV", "Tree", "Planet"],
+	["Planet", "RTV", "Tort", "Fountain", "Tree"],
+	["Printer", "Tort", "BallTower", "EvilTower"]
 ]
 
+var npcs = [
+	"NPC1", "NPC2", "NPC3", "NPC4", "NPC5"
+]
+
+var npc_table:Array = []
 var task_table:Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in tasks:
-		task_table.append(i.pick_random())
+	for i in range(1, 6):
+		var osoba = RandomNumberGenerator.new().randi_range(0,4)
+		task_table.append(tasks[osoba].pick_random())
+		npc_table.append(npcs[osoba])
+	
+	print(npc_table)
 	print(task_table)
 
 

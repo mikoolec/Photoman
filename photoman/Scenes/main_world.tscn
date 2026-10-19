@@ -166,7 +166,7 @@ shape = SubResource("BoxShape3D_lyqml")
 [node name="Wieża1" type="Area3D" parent="Meble" unique_id=1099882857 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4736, 11.23781, -25.332903)
 script = ExtResource("5_1tp12")
-object_id = "7G Tower"
+object_id = "RTV"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1" unique_id=785507800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
@@ -175,7 +175,7 @@ shape = SubResource("BoxShape3D_1tp12")
 [node name="Wieża2" type="Area3D" parent="Meble" unique_id=935663413 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.953896, 31.97335, 21.895916)
 script = ExtResource("5_1tp12")
-object_id = "RTV Tower"
+object_id = "BallTower"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża2" unique_id=791728577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
@@ -184,7 +184,7 @@ shape = SubResource("BoxShape3D_1tp12")
 [node name="Wieża3" type="Area3D" parent="Meble" unique_id=999379873 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4651, 8.117109, -15.174085)
 script = ExtResource("5_1tp12")
-object_id = "New Tower"
+object_id = "EvilTower"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża3" unique_id=134010590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
