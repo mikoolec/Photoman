@@ -1,5 +1,6 @@
 extends MarginContainer
 
+@onready var bounce_b = $VBoxContainer/BounceButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +17,13 @@ func _on_play_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_bounce_button_pressed() -> void:
+	pass # Replace with function body.
+	if GlobalNumbers.Bounce:
+		GlobalNumbers.Bounce = false
+		bounce_b.text = "Funny Bounce: Off"
+	else:
+		GlobalNumbers.Bounce = true
+		bounce_b.text = "Funny Bounce: On"

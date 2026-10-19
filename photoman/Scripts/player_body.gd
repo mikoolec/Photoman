@@ -152,8 +152,11 @@ func _on_shutter_finished() -> void:
 func _check_fall() -> void:
 
 	if position.y < -10.0 and not is_teleporting:
-		is_teleporting = true
-		_unstuck()
+		if GlobalNumbers.Bounce:
+			velocity.y = 30.0
+		else:
+			is_teleporting = true
+			_unstuck()
 
 func _unstuck() -> void:
 	# Resety prędkości natychmiast

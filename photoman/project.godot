@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Photoman"
-run/main_scene="uid://boysvhfkepnhq"
+run/main_scene="uid://bd42bn1ee88ov"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalNumbers="*uid://cnm8d3jmr7awe"
 
 [display]
 
