@@ -153,7 +153,7 @@ func _check_fall() -> void:
 
 	if position.y < -10.0 and not is_teleporting:
 		is_teleporting = true
-		_start_fall_teleport()
+		_unstuck()
 
 func _unstuck() -> void:
 	# Resety prędkości natychmiast
