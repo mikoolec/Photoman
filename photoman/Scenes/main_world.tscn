@@ -140,7 +140,7 @@ shape = SubResource("BoxShape3D_42jam")
 [node name="Drukarka" type="Area3D" parent="Meble" unique_id=1249484416 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.979818, 2.014194, 1.094625)
 script = ExtResource("5_1tp12")
-object_id = "Diabelskie urządzenie"
+object_id = "Printer"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drukarka" unique_id=409105483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20009804, 0.6201718, 0)
@@ -149,7 +149,7 @@ shape = SubResource("BoxShape3D_k5cj5")
 [node name="Drzewo" type="Area3D" parent="Meble" unique_id=2079851748 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.242396, 1.9480207, -15.168978)
 script = ExtResource("5_1tp12")
-object_id = "Drzewo"
+object_id = "Tree"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo" unique_id=321028754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
@@ -158,7 +158,7 @@ shape = SubResource("BoxShape3D_lyqml")
 [node name="Wieża1" type="Area3D" parent="Meble" unique_id=1099882857 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4736, 11.23781, -25.332903)
 script = ExtResource("5_1tp12")
-object_id = "Wieża 5G"
+object_id = "7G Tower"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1" unique_id=785507800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
@@ -167,7 +167,7 @@ shape = SubResource("BoxShape3D_1tp12")
 [node name="Wieża2" type="Area3D" parent="Meble" unique_id=935663413 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.953896, 31.97335, 21.895916)
 script = ExtResource("5_1tp12")
-object_id = "Wieża Telewizyjna"
+object_id = "RTV Tower"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża2" unique_id=791728577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
@@ -176,7 +176,7 @@ shape = SubResource("BoxShape3D_1tp12")
 [node name="Wieża3" type="Area3D" parent="Meble" unique_id=999379873 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4651, 8.117109, -15.174085)
 script = ExtResource("5_1tp12")
-object_id = "Nowa wieża"
+object_id = "New Tower"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża3" unique_id=134010590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
@@ -185,7 +185,7 @@ shape = SubResource("BoxShape3D_kyray")
 [node name="Fontanna" type="Area3D" parent="Meble" unique_id=984117925 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.001907, -7.1385775, -26.194988)
 script = ExtResource("5_1tp12")
-object_id = "Fontanna"
+object_id = "Fountain"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Fontanna" unique_id=753701354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.4353304, 1.1828957)
@@ -194,7 +194,7 @@ shape = SubResource("BoxShape3D_l2j04")
 [node name="Planeta" type="Area3D" parent="Meble" unique_id=864762940 groups=["photo_targets"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5213223, 10.497367, -89.29315)
 script = ExtResource("5_1tp12")
-object_id = "Planeta"
+object_id = "Planet"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Planeta" unique_id=2062282436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.4353304, 1.1828957)
@@ -242,7 +242,7 @@ transform = Transform3D(0.6478936, -0.027353587, 0.7611453, 0, 0.99928826, 0.035
 script = ExtResource("5_42jam")
 speed = 0.015
 
-[node name="Npc" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+[node name="Npc_1" parent="Path3D2/PathFollow3D" unique_id=522831393 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")
@@ -261,7 +261,7 @@ transform = Transform3D(0.9998752, -0.0053247754, -0.007389548, 0, 0.8112545, -0
 script = ExtResource("5_42jam")
 speed = 0.03
 
-[node name="Npc" parent="Path3D3/PathFollow3D" unique_id=1554993480 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+[node name="Npc_2" parent="Path3D3/PathFollow3D" unique_id=1554993480 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")
@@ -279,7 +279,7 @@ transform = Transform3D(-0.054449655, 0.03280246, -0.9979037, 0, 0.9993905, 0.03
 script = ExtResource("5_42jam")
 speed = -0.03
 
-[node name="Npc" parent="Path3D4/PathFollow3D" unique_id=505653113 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+[node name="Npc_3" parent="Path3D4/PathFollow3D" unique_id=505653113 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")
@@ -298,7 +298,7 @@ transform = Transform3D(0.6478936, -0.027353587, 0.7611453, 0, 0.99928826, 0.035
 script = ExtResource("5_42jam")
 speed = 0.04
 
-[node name="Npc" parent="Path3D5/PathFollow3D" unique_id=863362219 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+[node name="Npc_4" parent="Path3D5/PathFollow3D" unique_id=863362219 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")
@@ -317,7 +317,7 @@ transform = Transform3D(0.6478936, -0.027353587, 0.7611453, 0, 0.99928826, 0.035
 script = ExtResource("5_42jam")
 speed = 0.04
 
-[node name="Npc" parent="Path3D6/PathFollow3D" unique_id=1353411970 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
+[node name="Npc_5" parent="Path3D6/PathFollow3D" unique_id=1353411970 groups=["photo_targets"] instance=ExtResource("3_uq1df")]
 transform = Transform3D(1.0000149, -5.820766e-11, 9.313226e-10, -2.910383e-11, 1.0000101, 0, 9.313226e-10, -1.8626451e-09, 1.0000173, -4.7683716e-07, 0.64555645, 0.01957798)
 visible = false
 script = ExtResource("5_1tp12")

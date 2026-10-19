@@ -3,6 +3,8 @@ extends Node3D
 @onready var timer = $UI/Label
 var time = 0
 
+var tasks = [["Tree", "RTV Tower", "Planet", "Printer"], ["Planet", "New Tower", "7G Tower"], ["Fountain", "RTV Tower", "Tree", "Planet"]]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
