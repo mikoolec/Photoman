@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xf52jcmso8tm" path="res://Scripts/menu.gd" id="1_1rerr"]
 [ext_resource type="AudioStream" uid="uid://d3477ihlvl8k8" path="res://Assets/Music/menu-song.mp3" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://bcimipjns60pw" path="res://Assets/Image/logo.png" id="3_cayip"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4yt8"]
 
@@ -25,6 +26,7 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1533881486]
+z_index = 1
 layout_mode = 2
 text = "Play"
 
@@ -34,6 +36,7 @@ layout_mode = 2
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=904526113]
+z_index = 1
 layout_mode = 2
 text = "Quit"
 
@@ -41,6 +44,16 @@ text = "Quit"
 stream = ExtResource("2_xhh6f")
 volume_db = -14.596
 autoplay = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1554561164]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_cayip")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

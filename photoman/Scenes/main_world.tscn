@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dfogw4xi365hb" path="res://Scenes/NPC_scenes/npc_5_longdog.tscn" id="13_26rrv"]
 [ext_resource type="Texture2D" uid="uid://gpmdpg1l3juy" path="res://Assets/Image/renders/cake.png" id="14_8vilc"]
 [ext_resource type="Texture2D" uid="uid://bv6rs5d5hl1jt" path="res://Assets/Image/renders/done.png" id="15_11cts"]
+[ext_resource type="Texture2D" uid="uid://dvg0iw025hh4x" path="res://Assets/Image/renders/printer.png" id="15_c2nsa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mm4jm"]
 sky_top_color = Color(0.17582539, 0.45418197, 0.680639, 1)
@@ -132,7 +133,7 @@ hbox_container_npc = NodePath("UI/tasks/VBoxContainer/npc_container")
 hbox_container_task = NodePath("UI/tasks/VBoxContainer/task_container")
 done = ExtResource("15_11cts")
 npc_photos = Array[Texture2D]([ExtResource("2_t484e"), ExtResource("3_gjypx"), ExtResource("4_wu1r3"), ExtResource("5_w6m2d"), ExtResource("6_yh5jj")])
-place_photos = Array[Texture2D]([ExtResource("7_nuelh"), ExtResource("8_8vilc"), ExtResource("9_c2nsa"), ExtResource("10_dmsjx"), ExtResource("11_ad8eb"), ExtResource("12_x7h1o"), ExtResource("14_8vilc")])
+place_photos = Array[Texture2D]([ExtResource("7_nuelh"), ExtResource("8_8vilc"), ExtResource("9_c2nsa"), ExtResource("10_dmsjx"), ExtResource("11_ad8eb"), ExtResource("12_x7h1o"), ExtResource("14_8vilc"), ExtResource("15_c2nsa")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1908263488]
 environment = SubResource("Environment_ekhe2")

@@ -94,10 +94,12 @@ func _process(delta: float) -> void:
 				set_image_in_slot_task(place_photos[5],i)
 			"Tort":
 				set_image_in_slot_task(place_photos[6],i)
+			"Printer":
+				set_image_in_slot_task(place_photos[7],i)
 			"":
 				set_image_in_slot_task(done,i)
 			_:
-				print("Nieznany wynik:", npc_table[i])
+				print("Nieznany wynik:", task_table[i])
 	
 	var test:bool = false
 	for each in task_table:
