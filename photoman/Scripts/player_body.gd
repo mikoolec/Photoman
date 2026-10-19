@@ -148,6 +148,7 @@ func _on_shutter_finished() -> void:
 	print("The shutter sound has finished playing completely!")
 	subViewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	can_shoot = true
+	world_node.spawn_card_from_viewport()
 	
 func _check_fall() -> void:
 

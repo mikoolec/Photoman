@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3nuot34p8q45" path="res://Scripts/main_world.gd" id="1_l2j04"]
 [ext_resource type="PackedScene" uid="uid://b8lon5qkaw1qs" path="res://Scenes/city.tscn" id="2_ekhe2"]
 [ext_resource type="Texture2D" uid="uid://gfb6chmbcvwx" path="res://Assets/Image/renders/npc1.png" id="2_t484e"]
+[ext_resource type="PackedScene" uid="uid://bwen78j56rq56" path="res://Scenes/captured_card.tscn" id="3_dmsjx"]
 [ext_resource type="Texture2D" uid="uid://dkmd4ihbdn2kd" path="res://Assets/Image/renders/npc2.png" id="3_gjypx"]
 [ext_resource type="PackedScene" uid="uid://b7vao36tb2eoc" path="res://Scenes/NPC.tscn" id="3_uq1df"]
 [ext_resource type="Texture2D" uid="uid://bfgorhcutvsgq" path="res://Assets/Image/renders/npc3.png" id="4_wu1r3"]
@@ -48,6 +49,9 @@ glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.72063166, 0.598306, 0.72932553, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dmsjx"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="FogMaterial" id="FogMaterial_uq1df"]
 density = 1.5543
@@ -127,13 +131,18 @@ _data = {
 }
 point_count = 43
 
-[node name="World_node" type="Node3D" unique_id=964926376 node_paths=PackedStringArray("hbox_container_npc", "hbox_container_task")]
+[node name="World_node" type="Node3D" unique_id=964926376 node_paths=PackedStringArray("hbox_container_npc", "hbox_container_task", "sub_viewport", "target_sprite", "player_camera", "player")]
 script = ExtResource("1_l2j04")
 hbox_container_npc = NodePath("UI/tasks/VBoxContainer/npc_container")
 hbox_container_task = NodePath("UI/tasks/VBoxContainer/task_container")
 done = ExtResource("15_11cts")
+sub_viewport = NodePath("PlayerBody/aparat/SubViewport")
+target_sprite = NodePath("")
+captured_card_scene = ExtResource("3_dmsjx")
+player_camera = NodePath("PlayerBody/HeadNode/Camera3D")
 npc_photos = Array[Texture2D]([ExtResource("2_t484e"), ExtResource("3_gjypx"), ExtResource("4_wu1r3"), ExtResource("5_w6m2d"), ExtResource("6_yh5jj")])
 place_photos = Array[Texture2D]([ExtResource("7_nuelh"), ExtResource("8_8vilc"), ExtResource("9_c2nsa"), ExtResource("10_dmsjx"), ExtResource("11_ad8eb"), ExtResource("12_x7h1o"), ExtResource("14_8vilc"), ExtResource("15_c2nsa")])
+player = NodePath("PlayerBody")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1908263488]
 environment = SubResource("Environment_ekhe2")
@@ -146,6 +155,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.773272, 2.1923158, -25.791424)
 fade_rect = NodePath("../UI/CanvasLayer/ColorRect")
 world_node = NodePath("..")
+
+[node name="Sprite3D" parent="PlayerBody/aparat" parent_id_path=PackedInt32Array(1388397539, 460060548) index="3" unique_id=1722293546]
+texture = SubResource("ViewportTexture_dmsjx")
+
+[node name="Camera3D" parent="PlayerBody/aparat/SubViewport" parent_id_path=PackedInt32Array(1388397539, 460060548, 1501410405) index="0" unique_id=1294657047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.417652, 2.1923156, -26.324394)
 
 [node name="city" parent="." unique_id=1204165432 instance=ExtResource("2_ekhe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25431824, -6.8316097, -14.60508)
@@ -466,3 +481,6 @@ color = Color(0, 0, 0, 0)
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Unstuck" to="PauseScreen" method="_on_unfuck_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Exit" to="PauseScreen" method="_on_exit_pressed"]
+
+[editable path="PlayerBody"]
+[editable path="PlayerBody/aparat"]

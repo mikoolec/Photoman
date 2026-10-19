@@ -7,6 +7,10 @@ extends Node3D
 @export var done:Texture2D
 var time = 0
 
+@export var sub_viewport: SubViewport
+@export var captured_card_scene: PackedScene
+@export var player_camera: Camera3D
+
 var tasks_finished: int = 0
 
 @export var npc_photos:Array[Texture2D]
@@ -24,7 +28,7 @@ var npcs = [
 	"NPC1", "NPC2", "NPC3", "NPC4", "NPC5"
 ]
 
-
+@export var player = CharacterBody3D
 var npc_table:Array = []
 var task_table:Array = []
 # Called when the node enters the scene tree for the first time.
@@ -122,3 +126,48 @@ func set_image_in_slot_task(texture: Texture2D, slot_index: int) -> void:
 		var slot = hbox_container_task.get_child(slot_index) as TextureRect
 		if slot:
 			slot.texture = texture
+
+func spawn_card_from_viewport() -> void:
+	# Pobranie klatki z SubViewporta
+	var img = sub_viewport.get_texture().get_image()
+	var tex = ImageTexture.create_from_image(img)
+	
+	# Instancjonowanie obiektu karty w świecie gry
+	var card_instance = captured_card_scene.instantiate()
+	get_tree().current_scene.add_child(card_instance)
+	
+	# Uruchomienie sekwencji
+	card_instance.setup_and_start(tex, player_camera)
+
+#func capture_frame_to_sprite() -> void:
+#	# 1. Pobieramy bieżącą teksturę z SubViewporta
+#	var viewport_texture = sub_viewport.get_texture()
+#	
+#	# 2. Pobieramy dane pikselowe z GPU do RAM (Image)
+#	var image: Image = viewport_texture.get_image()
+#	
+#	# 3. Tworzymy całkowicie osobną, statyczną teksturę z tego obrazu
+#	var frozen_texture = ImageTexture.create_from_image(image)
+#	
+#	# 4. Przypisujemy zamrożoną klatkę do Sprite3D
+#	target_sprite.texture = frozen_texture
+#	print("mam widok")
+#	# 5. Uruchamiamy przykładową animację (np. płynne unoszenie i znikanie)
+#	animate_captured_sprite()
+
+#func animate_captured_sprite() -> void:
+#	# Włączamy widoczność, jeśli obiekt był ukryty
+#	target_sprite.show()
+#	target_sprite.position = player.position
+#	print("powinienem byc u gracza")
+#	
+#	var tween = create_tween().set_parallel(true)
+#	
+#	# Przykładowa animacja: uniesienie w górę o 2 jednostki i zanikanie (fade out)
+#	tween.tween_property(target_sprite, "position:y", target_sprite.position.y + 2.0, 1.0)
+#	tween.tween_property(target_sprite, "modulate:a", 0.0, 4.0)
+#	
+#	# Po zakończeniu animacji ukrywamy lub usuwamy obiekt
+#	await tween.finished
+#	target_sprite.hide()
+#	target_sprite.modulate.a = 1.0 # Resetujemy przezroczystość dla kolejnego użycia

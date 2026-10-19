@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwen78j56rq56"]
+
+[ext_resource type="Script" uid="uid://c5hbc5lk3o5aa" path="res://Scripts/captured_card.gd" id="1_f8scq"]
+
+[sub_resource type="Gradient" id="Gradient_f8scq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqvrb"]
+gradient = SubResource("Gradient_f8scq")
+
+[node name="CapturedCard" type="Node3D" unique_id=989303210]
+script = ExtResource("1_f8scq")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1753626901]
+transform = Transform3D(-0.25, -3.774895e-08, 0, 3.774895e-08, -0.25, 0, 0, 0, 0.25, 0, 0, 0.74324614)
+texture = SubResource("GradientTexture2D_vqvrb")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1759830603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, -0.5, 0)
