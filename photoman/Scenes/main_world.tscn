@@ -196,11 +196,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20009804, 0.6201718, 0)
 shape = SubResource("BoxShape3D_k5cj5")
 
 [node name="Drzewo" type="Area3D" parent="Meble" unique_id=2079851748 groups=["photo_targets"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.242396, 1.9480207, -15.168978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2786357, 2.243912, -15.37047)
 script = ExtResource("5_1tp12")
 object_id = "Tree"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo" unique_id=321028754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Drzewo2" type="Area3D" parent="Meble" unique_id=943205108 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1987464, 3.1710787, -13.808744)
+script = ExtResource("5_1tp12")
+object_id = "Tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo2" unique_id=329558170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Drzewo3" type="Area3D" parent="Meble" unique_id=256315965 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3467245, 3.3325653, -16.215374)
+script = ExtResource("5_1tp12")
+object_id = "Tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo3" unique_id=1276546764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Drzewo4" type="Area3D" parent="Meble" unique_id=1033452497 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38764858, 4.4483523, -13.741701)
+script = ExtResource("5_1tp12")
+object_id = "Tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo4" unique_id=1271328691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Drzewo5" type="Area3D" parent="Meble" unique_id=1969480765 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3265052, 3.177446, -15.102588)
+script = ExtResource("5_1tp12")
+object_id = "Tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo5" unique_id=1343204144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
+shape = SubResource("BoxShape3D_lyqml")
+
+[node name="Drzewo6" type="Area3D" parent="Meble" unique_id=1745654121 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0166694, 1.1709001, -13.631888)
+script = ExtResource("5_1tp12")
+object_id = "Tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Drzewo6" unique_id=1528962680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9962902, 0.6957419, 1.1828957)
 shape = SubResource("BoxShape3D_lyqml")
 
@@ -210,6 +255,24 @@ script = ExtResource("5_1tp12")
 object_id = "RTV"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1" unique_id=785507800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
+shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Wieża1_1" type="Area3D" parent="Meble" unique_id=2125611096 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.729046, 22.498165, -24.296741)
+script = ExtResource("5_1tp12")
+object_id = "RTV"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1_1" unique_id=1976005981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
+shape = SubResource("BoxShape3D_1tp12")
+
+[node name="Wieża1_2" type="Area3D" parent="Meble" unique_id=445325163 groups=["photo_targets"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.741726, 4.9375544, -24.305738)
+script = ExtResource("5_1tp12")
+object_id = "RTV"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meble/Wieża1_2" unique_id=1550217909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0, 1.183)
 shape = SubResource("BoxShape3D_1tp12")
 
