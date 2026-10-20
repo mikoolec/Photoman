@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var MOUSE_SENSITIVITY_ref = 0.01
 @export var bob_amp_ref = 0.08
 
+
 @export var fade_rect: ColorRect # Przeciągnij tutaj ColorRect w Inspektorze
 @export var respawn_position: Vector3 = Vector3(25.77, 2.192, -25.7)
 
@@ -47,10 +48,10 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		rotate_y(-event.relative.x * MOUSE_SENSITIVITY * GlobalNumbers.sens)
+		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY * GlobalNumbers.sens)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(59))
-		aparat.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		aparat.rotate_x(-event.relative.y * MOUSE_SENSITIVITY * GlobalNumbers.sens)
 		aparat.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(59))
 		#aparat_nodes.rotate_x((-event.relative.y * MOUSE_SENSITIVITY))
 		

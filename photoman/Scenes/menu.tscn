@@ -57,6 +57,11 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Quit"
 
+[node name="SensitivityButton" type="Button" parent="VBoxContainer" unique_id=342432205]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Mouse Sensitivity: 1"
+
 [node name="CaptureButton" type="Button" parent="VBoxContainer" unique_id=1294783337]
 layout_mode = 2
 text = "Save Photos: Off"
@@ -81,5 +86,6 @@ stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SensitivityButton" to="." method="_on_sensitivity_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CaptureButton" to="." method="_on_capture_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BounceButton" to="." method="_on_bounce_button_pressed"]

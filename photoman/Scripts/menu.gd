@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var bounce_b = $VBoxContainer/BounceButton
 @onready var capture_b = $VBoxContainer/CaptureButton
 @onready var exit_b = $VBoxContainer/QuitButton
+@onready var sens_b = $VBoxContainer/SensitivityButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,3 +47,10 @@ func _on_capture_button_pressed() -> void:
 	else:
 		GlobalNumbers.Capture = true
 		capture_b.text = "Save Photos: On"
+
+
+func _on_sensitivity_button_pressed() -> void:
+	GlobalNumbers.sens = GlobalNumbers.sens + 0.1
+	if GlobalNumbers.sens > 1.85:
+		GlobalNumbers.sens = 0.2
+	sens_b.text = "Mouse Sensitivity: " + str(GlobalNumbers.sens)

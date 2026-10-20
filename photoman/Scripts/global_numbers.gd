@@ -2,6 +2,7 @@ extends Node
 
 var Bounce:bool = false
 var Capture:bool = false
+var sens:float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

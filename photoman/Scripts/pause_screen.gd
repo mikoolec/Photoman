@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var time = $VBoxContainer/Time
 @onready var resume = $VBoxContainer/Resume
 @onready var unstuck = $VBoxContainer/Unstuck
+@onready var sens_b = $VBoxContainer/SensButton
 @export var player: CharacterBody3D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
@@ -14,6 +15,7 @@ func pause(won: bool = false) -> void:
 	print("h")
 	get_tree().paused = !get_tree().paused 
 	visible = get_tree().paused 
+	sens_b.text = "Mouse Sensitivity: " + str(GlobalNumbers.sens)
 	
 	if (won):
 		resume.visible = false
@@ -62,3 +64,10 @@ func _on_unfuck_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().paused = !get_tree().paused 
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
+func _on_sens_button_pressed() -> void:
+	GlobalNumbers.sens = GlobalNumbers.sens + 0.1
+	if GlobalNumbers.sens > 1.5:
+		GlobalNumbers.sens = 0.2
+	sens_b.text = "Mouse Sensitivity: " + str(GlobalNumbers.sens)

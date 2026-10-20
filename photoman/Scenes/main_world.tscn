@@ -286,6 +286,10 @@ label_settings = SubResource("LabelSettings_w1t3d")
 layout_mode = 2
 text = "Resume"
 
+[node name="SensButton" type="Button" parent="PauseScreen/VBoxContainer" unique_id=980795320]
+layout_mode = 2
+text = "Mouse Sensitivity: 1"
+
 [node name="Unstuck" type="Button" parent="PauseScreen/VBoxContainer" unique_id=926526537]
 layout_mode = 2
 text = "Unstuck"
@@ -477,6 +481,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/SensButton" to="PauseScreen" method="_on_sens_button_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Unstuck" to="PauseScreen" method="_on_unfuck_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Reset" to="PauseScreen" method="_on_reset_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Exit" to="PauseScreen" method="_on_exit_pressed"]
