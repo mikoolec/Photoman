@@ -15,6 +15,18 @@ func _ready() -> void:
 	elif OS.has_feature("pc"):
 		# Logika dla wersji PC
 		pass
+	
+	sens_b.text = "Mouse Sensitivity: " + str(GlobalNumbers.sens)
+	
+	if GlobalNumbers.Capture:
+		capture_b.text = "Save Photos: On"
+	else:
+		capture_b.text = "Save Photos: Off"
+	
+	if GlobalNumbers.Bounce:
+		bounce_b.text = "Funny Bounce: On"
+	else:
+		bounce_b.text = "Funny Bounce: Off"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

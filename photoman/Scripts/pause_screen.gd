@@ -22,6 +22,7 @@ func pause(won: bool = false) -> void:
 		you_win.visible = true
 		time.visible = true
 		unstuck.visible = false
+		sens_b.visible = false
 		var timer_time = get_parent().time
 		var minutes = int(timer_time)/60
 		var seconds = int(timer_time)%60
@@ -34,6 +35,7 @@ func pause(won: bool = false) -> void:
 		you_win.visible = false
 		time.visible = false
 		unstuck.visible = true
+		sens_b.visible = true
 		
 	if (visible):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

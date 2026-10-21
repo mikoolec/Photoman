@@ -174,10 +174,12 @@ func spawn_card_from_viewport() -> void:
 #	target_sprite.hide()
 #	target_sprite.modulate.a = 1.0 # Resetujemy przezroczystość dla kolejnego użycia
 
-func save_viewport_to_png(file_name: String = "captured_frame.png") -> void:
+func save_viewport_to_png(file_name: String = "") -> void:
 	# 1. Pobieramy teksturę i dane pikselowe (Image)
 	var texture = sub_viewport.get_texture()
 	var image: Image = texture.get_image()
+	
+	file_name = "Photoman_capture_#" + str( RandomNumberGenerator.new().randi_range(100000000,999999999) ) + ".png"
 	
 	# 2. Wybieramy ścieżkę zapisu:
 	# "user://" zapisuje w bezpiecznym folderze danych użytkownika (AppData/Roaming na Windows)
